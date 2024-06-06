@@ -106,6 +106,7 @@ function woosh() {
 }
 
 alias ls="ls -a"
+alias reload="source ~/.zshrc"
 
 # bun completions
 [ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
