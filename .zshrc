@@ -105,6 +105,8 @@ function woosh() {
   git checkout -b $1 && git push -u origin HEAD
 }
 
+alias ls="ls -a"
+
 # bun completions
 [ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
 

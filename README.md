@@ -46,7 +46,7 @@ Linux:
 sudo apt-get install git
 ```
 
-### GNU Stow
+### Stow
 
 macOS:
 
