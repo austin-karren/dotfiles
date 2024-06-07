@@ -75,6 +75,12 @@ Then, use stow to symlink the dotfiles you want to use:
 stow .
 ```
 
+Note: oh-my-zsh overrides the `.zshrc` file. To use the `.zshrc` file in this repo, you can add the `--adopt` flag to the stow command:
+
+```zsh
+stow --adopt .zshrc
+```
+
 ## References
 
 YT Video: [Stow has forever changed the way I manage my dotfiles](https://youtu.be/y6XCebnB9gs?si=7qzwfZUKaaK5Fo-o) by [
