@@ -74,6 +74,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+echo "austink.dev" | figlet  -f "Slant" | lolcat
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -105,7 +107,7 @@ function woosh() {
   git checkout -b $1 && git push -u origin HEAD
 }
 
-alias ls="ls -a"
+alias lsa="ls -a --color=always"
 alias reload="source ~/.zshrc"
 
 # bun completions
