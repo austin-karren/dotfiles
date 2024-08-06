@@ -114,6 +114,7 @@ function woosh() {
 alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
 alias reload="source ~/.zshrc"
+alias reloadc="source ~/.zshrc && clear"
 
 # bun completions
 [ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
