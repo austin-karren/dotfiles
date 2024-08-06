@@ -102,11 +102,16 @@ echo "austink.dev" | figlet  -f "Slant" | lolcat
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Brew path
+export BREW_HOME="/opt/homebrew" # Homebrew path on Apple Silicon Macs
+export PATH="opt/homebrew/Cellar/sqlite/3.46.0/bin/sqlite3:$PATH"
+
 # aliases and functions
 function woosh() {
   git checkout -b $1 && git push -u origin HEAD
 }
 
+alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
 alias reload="source ~/.zshrc"
 
