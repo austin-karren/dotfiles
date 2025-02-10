@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/austinkarren/.zsh/completions:"* ]]; then export FPATH="/Users/austinkarren/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -53,6 +55,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Terminal personalization
 echo "austink.dev" | figlet  -f "Slant" | lolcat
+echo "keybindings:" | lolcat
+echo "cmd+shift+space = toggle_quick_terminal" | lolcat
+echo " "
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -78,8 +83,8 @@ function woosh() {
 
 alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
-alias reload="source ~/.zshrc"
-alias reloadc="source ~/.zshrc && clear"
+alias reload="clear && source ~/.zshrc"
+alias reload-preserve="source ~/.zshrc"
 
 # bun completions
 [ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
@@ -98,3 +103,9 @@ esac
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+. "/Users/austinkarren/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

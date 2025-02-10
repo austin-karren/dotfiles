@@ -1,0 +1,14 @@
+[user]
+	name = Austin Karren
+	email = austin.t.karren@gmail.com
+[alias]
+  undo = reset --soft HEAD^
+[push]
+  autoSetupRemote = true
+  default = current
+[core]
+  pager = delta
+[delta]
+  line-numbers = true
+[merge]
+  conflictstyle = zdiff3
