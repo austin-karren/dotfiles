@@ -81,6 +81,8 @@ function woosh() {
   git checkout -b $1 && git push -u origin HEAD
 }
 
+alias git-prune-dead='git fetch -p && git branch -vv | grep ": gone]" | awk "{print \$1}" | xargs git branch -D'
+
 alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
 alias reload="clear && source ~/.zshrc"
