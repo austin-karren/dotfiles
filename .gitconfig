@@ -1,6 +1,6 @@
 [user]
 	name = Austin Karren
-	email = austin.t.karren.com@gmail.com
+	email = austin.t.karren@gmail.com
 [alias]
   undo = reset --soft HEAD^
 [push]
