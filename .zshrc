@@ -6,6 +6,7 @@ if [[ ":$FPATH:" != *":/Users/austinkarren/.zsh/completions:"* ]]; then export F
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# I prefer the default oh-my-zsh theme robbyrussell
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -53,7 +54,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Terminal personalization
+# Terminal personalization - startup animation
 echo "austink.dev" | figlet  -f "Slant" | lolcat
 echo "keybindings:" | lolcat
 echo "cmd+shift+space = toggle_quick_terminal" | lolcat
@@ -73,10 +74,12 @@ echo " "
 
 # Brew path
 export BREW_HOME="/opt/homebrew" # Homebrew path on Apple Silicon Macs
-export PATH="opt/homebrew/Cellar/sqlite/3.46.0/bin/sqlite3:$PATH"
+export PATH="/opt/homebrew/Cellar/sqlite/3.46.0/bin/sqlite3:$PATH"
 
 # aliases and functions
 # For a full list of active aliases, run `alias`.
+
+# woosh is deprecated use git checkout -b <branch_name> instead. (See `.gitconfig`)
 function woosh() {
   git checkout -b $1 && git push -u origin HEAD
 }
@@ -87,6 +90,8 @@ alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
 alias reload="clear && source ~/.zshrc"
 alias reload-preserve="source ~/.zshrc"
+
+# JS ecosystem stuff, also assuming that you are using MacOS and that your user is austinkarren. Feel free to comment or change the following lines if you don't use them. I might make a branch for other operating systems in the future.
 
 # bun completions
 [ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
@@ -102,6 +107,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 . "/Users/austinkarren/.deno/env"
+
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
