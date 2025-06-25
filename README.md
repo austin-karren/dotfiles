@@ -2,6 +2,8 @@
 
 This repository contains my dotfiles. I use [GNU Stow](https://www.gnu.org/software/stow/) to manage them.
 
+See the [wiki](https://github.com/austin-karren/dotfiles/wiki) for everything that I couldn't cram into this README.
+
 ## Requirements
 
 Use macOS, Linux, or WSL. If you are using something other than macOS on apple silicon, you may want to comment out JS ecosystem stuff in `.zshrc` and set that up yourself. Ensure you have the following installed on your system.
