@@ -79,11 +79,6 @@ export PATH="/opt/homebrew/Cellar/sqlite/3.46.0/bin/sqlite3:$PATH"
 # aliases and functions
 # For a full list of active aliases, run `alias`.
 
-# woosh is deprecated use git checkout -b <branch_name> instead. (See `.gitconfig`)
-function woosh() {
-  git checkout -b $1 && git push -u origin HEAD
-}
-
 alias git-prune-dead='git fetch -p && git branch -vv | grep ": gone]" | awk "{print \$1}" | xargs git branch -D'
 
 alias ls="ls -a --color=always"
