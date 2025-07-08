@@ -88,8 +88,7 @@ alias git-prune-dead='git fetch -p && git branch -vv | grep ": gone]" | awk "{pr
 
 alias ls="ls -a --color=always"
 alias lsa="ls -a --color=always"
-alias reload="clear && source ~/.zshrc"
-alias reload-preserve="source ~/.zshrc"
+alias reloadrc="source ~/.zshrc"
 
 # JS ecosystem stuff, also assuming that you are using MacOS and that your user is austinkarren. Feel free to comment or change the following lines if you don't use them. I might make a branch for other operating systems in the future.
 
