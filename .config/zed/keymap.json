@@ -1,0 +1,39 @@
+[
+  {
+    "context": "Workspace",
+    //ctrl-alt-cmd-shift = superkey (bound to capslock)
+    //ctrl-alt-cmd = alt superkey (to prevent overlapping with Raycast superkey commands)
+    "bindings": {
+      //workspace::keybinds
+      "ctrl-alt-cmd-up": "workspace::ActivatePaneUp",
+      "ctrl-alt-cmd-down": "workspace::ActivatePaneDown",
+      "ctrl-alt-cmd-left": "workspace::ActivatePaneLeft",
+      "ctrl-alt-cmd-right": "workspace::ActivatePaneRight",
+      //pane::keybinds
+      "cmd-k cmd-x": "pane::JoinAll",
+      "cmd-k cmd-up": "pane::SplitUp",
+      "cmd-k cmd-down": "pane::SplitDown",
+      "cmd-k cmd-left": "pane::SplitLeft",
+      "cmd-k cmd-right": "pane::SplitRight",
+      //project_panel::keybinds
+      "ctrl-alt-cmd-x": "project_panel::CollapseAllEntries"
+    }
+  },
+  // AI Bindings
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "alt-l": "editor::AcceptEditPrediction",
+      // Optional: Disable the default alt-tab binding
+      "alt-tab": null
+    }
+  },
+  {
+    "context": "Editor && edit_prediction_conflict",
+    "bindings": {
+      "alt-l": "editor::AcceptEditPrediction",
+      // Optional: Disable the default alt-tab binding
+      "alt-tab": null
+    }
+  }
+]

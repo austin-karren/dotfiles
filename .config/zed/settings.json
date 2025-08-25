@@ -1,0 +1,90 @@
+{
+	"format_on_save": "on",
+	"lsp": {
+		"tailwindcss-language-server": {
+			"settings": {
+				"classFunctions": ["cva", "cx"]
+			}
+		},
+		"biome": {
+			"settings": {
+				"config_path": "<path>/biome.json",
+				"require_config_file": true
+			}
+		},
+		"typos": {
+			"initialization_options": {
+				"config": ".typos.toml",
+				"path": "typos-lsp",
+				"diagnosticSeverity": "Warning",
+				"logLevel": "info",
+				"trace.server": "off"
+			}
+		}
+	},
+	// Biome
+	"languages": {
+		"JavaScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"TypeScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"TSX": { "formatter": { "language_server": { "name": "biome" } } },
+		"JSON": { "formatter": { "language_server": { "name": "biome" } } },
+		"JSONC": { "formatter": { "language_server": { "name": "biome" } } },
+		"CSS": { "formatter": { "language_server": { "name": "biome" } } }
+		// "GraphQL": { "formatter": { "language_server": { "name": "biome" } } }
+	},
+	// Keymap see keymap.json
+	"base_keymap": "VSCode",
+	// some of my favorite alternate themes:
+	// dark: Andromeda, Catppuccin Mocha
+	// light: One Light, Catpuccin Latte
+	"theme": {
+		"mode": "system",
+		"dark": "Catppuccin Mocha",
+		"light": "Catppuccin Latte"
+	},
+	"tab_size": 2,
+	"ui_font_size": 16,
+	"buffer_font_size": 16.0,
+	"ui_font_family": "MonoLisa",
+	// "buffer_font_family": "Geist Mono",
+	"soft_wrap": "editor_width",
+	"terminal": {
+		"dock": "left"
+	},
+	"project_panel": {
+		"dock": "left"
+	},
+	"agent": {
+		"default_profile": "write",
+		"profiles": {
+			"ask": {
+				"name": "Ask",
+				"tools": {
+					"open": true,
+					"contents": true,
+					"diagnostics": true,
+					"fetch": true,
+					"list_directory": false,
+					"now": true,
+					"find_path": true,
+					"read_file": true,
+					"grep": true,
+					"thinking": true
+				},
+				"enable_all_context_servers": false,
+				"context_servers": {}
+			}
+		},
+		"always_allow_tool_actions": true,
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-7-sonnet-latest"
+		},
+		"button": false
+	},
+	// hidden
+	"collaboration_panel": {
+		"dock": "left",
+		"button": false
+	}
+}

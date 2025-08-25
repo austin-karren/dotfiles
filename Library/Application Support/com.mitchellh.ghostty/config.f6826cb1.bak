@@ -1,0 +1,19 @@
+# themes
+# dark: Andromeda, catppuccin-mocha | light: catppuccin-latte
+theme = dark:Andromeda,light:catppuccin-latte
+
+# font
+font-family = MonoLisa
+font-size = 15
+font-thicken = false
+
+# window
+window-padding-y = 6
+window-padding-x = 6
+window-padding-balance = true
+window-width = 95
+window-height = 28
+window-save-state = always
+
+# keybinds
+keybind = global:cmd+shift+space=toggle_quick_terminal
