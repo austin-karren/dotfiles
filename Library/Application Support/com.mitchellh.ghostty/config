@@ -1,7 +1,7 @@
 # MacOS Ghostty Config
 
 # themes
-# dark: Andromeda, catppuccin-mocha | light: catppuccin-latte
+# dark:Catppuccin Mocha | light:Catppuccin Latte
 theme = dark:Andromeda,light:Catppuccin Latte
 
 # font
