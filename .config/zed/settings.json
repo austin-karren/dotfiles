@@ -6,6 +6,7 @@
         "classFunctions": ["cva", "cx"]
       }
     },
+    /* Biome */
     // "biome": {
     // 	"settings": {
     // 		"config_path": "<path>/biome.json",
