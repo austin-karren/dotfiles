@@ -2,7 +2,7 @@
 
 # themes
 # dark: Andromeda, catppuccin-mocha | light: catppuccin-latte
-theme = dark:Andromeda,light:catppuccin-latte
+theme = dark:Andromeda,light:Catppuccin Latte
 
 # font
 font-family = MonoLisa
