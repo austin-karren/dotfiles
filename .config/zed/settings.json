@@ -1,18 +1,19 @@
 {
   /* LSP */
   "lsp": {
+    /* Tailwindcss */
     "tailwindcss-language-server": {
       "settings": {
         "classFunctions": ["cva", "cx"]
       }
     },
     /* Biome */
-    // "biome": {
-    // 	"settings": {
-    // 		"config_path": "<path>/biome.json",
-    // 		"require_config_file": true
-    // 	}
-    // },
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
+    /* Typos */
     "typos": {
       "initialization_options": {
         "config": ".typos.toml",
@@ -26,34 +27,22 @@
   /* Languages */
   "languages": {
     "JavaScript": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     },
     "TypeScript": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     },
     "TSX": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     },
     "JSON": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     },
     "JSONC": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     },
     "CSS": {
-      // "formatter": {
-      //   "language_server": { "name": "biome" }
-      // }
+      "language_servers": ["!biome", "..."]
     }
   },
   /* Behaviors */
