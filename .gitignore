@@ -1,2 +1,8 @@
 *.mdb
 .env
+.tmp*
+embeddings*
+conversations*
+prompts*
+templates*
+themes*
