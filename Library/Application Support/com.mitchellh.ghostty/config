@@ -1,7 +1,6 @@
 # MacOS Ghostty Config
 
 # themes
-# dark:Catppuccin Mocha | light:Catppuccin Latte
 theme = dark:Andromeda,light:Catppuccin Latte
 
 # font
@@ -16,6 +15,10 @@ window-padding-balance = true
 window-width = 95
 window-height = 28
 window-save-state = always
+
+# quick terminal
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
 
 # keybinds
 keybind = global:cmd+shift+space=toggle_quick_terminal
