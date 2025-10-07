@@ -24,7 +24,9 @@ source $ZSH/oh-my-zsh.sh
 # Terminal personalization - startup animation
 echo "austink.dev" | figlet  -f "Slant" | lolcat
 echo "keybindings:" | lolcat
-echo "cmd+shift+space = toggle_quick_terminal" | lolcat
+echo "cmd+shift+space = toggle_quick_terminal"
+echo "cmd+d = new_split:auto"
+echo "cmd+opt+arrow = toggle_split_view"
 echo " "
 
 # export MANPATH="/usr/local/man:$MANPATH"
