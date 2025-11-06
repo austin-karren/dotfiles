@@ -1,5 +1,19 @@
 {
   /* LSP */
+  "context_servers": {
+    "mcp-server-github": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    },
+    "mcp-server-brave-search": {
+      "source": "extension",
+      "enabled": false,
+      "settings": {
+        "brave_api_key": "YOUR_API_KEY"
+      }
+    }
+  },
   "lsp": {
     /* Tailwindcss */
     "tailwindcss-language-server": {
@@ -70,9 +84,12 @@
   "project_panel": {
     "dock": "left"
   },
+  "file_types": {
+    "JSONC": ["tsconfig*.json", "base.json", "internal-package.json"]
+  },
   /* Agents 🤖 */
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "profiles": {
       "ask": {
         "name": "Ask",
@@ -94,10 +111,22 @@
     },
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
     },
-    "button": false
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet"
+    },
+    "commit_message_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "thread_summary_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "button": true
   },
   /* Hidden Items */
   "collaboration_panel": {
