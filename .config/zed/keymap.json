@@ -21,19 +21,9 @@
   },
   // AI Bindings
   {
-    "context": "Editor && edit_prediction",
+    "context": "Editor && edit_prediction && showing_completions",
     "bindings": {
-      "alt-l": "editor::AcceptEditPrediction",
-      // Optional: Disable the default alt-tab binding
-      "alt-tab": null
-    }
-  },
-  {
-    "context": "Editor && edit_prediction_conflict",
-    "bindings": {
-      "alt-l": "editor::AcceptEditPrediction",
-      // Optional: Disable the default alt-tab binding
-      "alt-tab": null
+      "tab": "editor::AcceptEditPrediction"
     }
   }
 ]
