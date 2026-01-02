@@ -1,19 +1,17 @@
 {
-  /* LSP */
   "lsp": {
-    /* Tailwindcss */
+    /*
+      🗒️ note: this config allows tailwind language server to run in CVA and CX objects
+    */
     "tailwindcss-language-server": {
       "settings": {
         "classFunctions": ["cva", "cx"],
       },
     },
-    /* Biome */
-    // "biome": {
-    //   "settings": {
-    //     "require_config_file": true
-    //   }
-    // },
-    /* Typos */
+    /*
+      Biome
+      🗒️ note: biome is dead to me due to how zed handles language servers and oxlint works great
+    */
     "typos": {
       "initialization_options": {
         "config": ".typos.toml",
@@ -24,33 +22,23 @@
       },
     },
   },
-  /* Languages */
-  "languages": {
-    "TypeScript": {
-      /* Default to using tsgo with vtsls as fallback */
-      "language_servers": ["tsgo", "vtsls"],
-    },
-    //   "JavaScript": {
-    //     "language_servers": ["!biome", "..."]
-    //   },
-    //   "TypeScript": {
-    //     "language_servers": ["!biome", "..."]
-    //   },
-    //   "TSX": {
-    //     "language_servers": ["!biome", "..."]
-    //   },
-    //   "JSON": {
-    //     "language_servers": ["!biome", "..."]
-    //   },
-    //   "JSONC": {
-    //     "language_servers": ["!biome", "..."]
-    //   },
-    //   "CSS": {
-    //     "language_servers": ["!biome", "..."]
-    //   }
-  },
+
+  /*
+    ⚠️ warning: leave disabled until zed fixes this
+    🗒️ note: once zed supports fallbacks switch to tsgo
+  */
+  // "languages": {
+  //   "TypeScript": {
+  //     "language_servers": ["tsgo", "vtsls", "!typescript-language-server", "..."],
+  //   },
+  //   "TSX": {
+  //     "language_servers": ["tsgo", "vtsls", "!typescript-language-server", "..."],
+  //   },
+  // },
+
   /* Behaviors */
   "format_on_save": "on",
+
   /* Themes 🎨 */
   "theme": {
     "mode": "system",
@@ -59,8 +47,12 @@
     // dark: "Andromeda" // ✨
     // light: "One Light" // 💡
   },
-  /* Keymap see keymap.json */
+
+  /*
+    🗒️ note: see keymap.json
+  */
   "base_keymap": "VSCode",
+
   /* Editor  */
   "tab_size": 2,
   "ui_font_size": 16,
@@ -77,6 +69,7 @@
   "file_types": {
     "JSONC": ["tsconfig*.json", "base.json", "internal-package.json"],
   },
+
   /* Agents 🤖 */
   "agent": {
     "default_profile": "ask",
