@@ -46,9 +46,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # :: deno
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
-  export FPATH="$HOME/.zsh/completions:$FPATH"
-fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 . "$HOME/.deno/env"
 
 # :: completions bridge (Terraform, etc)
