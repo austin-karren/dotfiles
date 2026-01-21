@@ -63,6 +63,11 @@
   "terminal": {
     "dock": "left",
   },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+    },
+  },
   "project_panel": {
     "dock": "left",
   },
