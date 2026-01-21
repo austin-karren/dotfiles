@@ -83,7 +83,7 @@ stow --adopt .zshrc
 
 ### User paths
 
-The `.zshrc` file assumes that the user is on macOS and the user is `austinkarren` (my default macOS user). Change the paths in `.zshrc` to match your system or do a fresh install yourself. If you are using something other than macOS on apple silicon, you may want to comment out JS ecosystem stuff in `.zshrc` and set that up yourself.
+The `.zshrc` file assumes that you are on macOS. Change the paths in `.zshrc` to match your system or do a fresh install yourself. If you are using something other than macOS on apple silicon, you may want to comment out some of the fields and set up your own paths.
 
 ### Startup animation
 
