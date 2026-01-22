@@ -77,7 +77,7 @@
 
   /* Agents 🤖 */
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "profiles": {
       "ask": {
         "name": "Ask",

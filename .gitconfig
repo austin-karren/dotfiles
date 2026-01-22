@@ -1,7 +1,7 @@
 [user]
 	name = Austin Karren
 [include]
-  path = ~/.gitconfig.local # Hide user email information
+  path = ~/.gitconfig.local # Replace with your own configuration file or personal information
 [alias]
   undo = reset --soft HEAD^
 [push]
