@@ -66,6 +66,17 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # ---------------------------------------------------------
 
 export PATH="$PATH:/Users/austinkarren/.lmstudio/bin"
+alias lms-load-qwen-vision="lms load --identifier qwen-portal/vision-model"
+
+lms-status() {
+  echo "👀 Checking LM Studio status"
+  lms status
+}
+
+lms-models() {
+  echo "🔍 Checking LM Studio models"
+  curl http://192.168.69.127:1234/v1/models
+}
 
 # ---------------------------------------------------------
 # 💻  Aliases and functions

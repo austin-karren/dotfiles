@@ -16,14 +16,20 @@
       "cmd-k cmd-left": "pane::SplitLeft",
       "cmd-k cmd-right": "pane::SplitRight",
       //project_panel::keybinds
-      "ctrl-alt-cmd-x": "project_panel::CollapseAllEntries"
-    }
+      "ctrl-alt-cmd-x": "project_panel::CollapseAllEntries",
+    },
   },
   // AI Bindings
   {
     "context": "Editor && edit_prediction && showing_completions",
     "bindings": {
-      "tab": "editor::AcceptEditPrediction"
-    }
-  }
+      "tab": "editor::AcceptEditPrediction",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-/": "agents::ToggleAgentsPanel",
+    },
+  },
 ]
