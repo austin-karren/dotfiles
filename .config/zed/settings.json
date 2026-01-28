@@ -3,6 +3,21 @@
     /*
       🗒️ note: this config allows tailwind language server to run in CVA and CX objects
     */
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "tailwindcss-language-server": {
       "settings": {
         "classFunctions": ["cva", "cx"],
@@ -101,7 +116,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest",
+      "model": "claude-sonnet-4-5-thinking-latest",
     },
     "inline_assistant_model": {
       "provider": "anthropic",
