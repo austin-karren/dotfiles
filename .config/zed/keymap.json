@@ -11,10 +11,10 @@
       "ctrl-alt-cmd-right": "workspace::ActivatePaneRight",
       //pane::keybinds
       "cmd-k cmd-x": "pane::JoinAll",
-      "cmd-k cmd-up": "pane::SplitUp",
-      "cmd-k cmd-down": "pane::SplitDown",
-      "cmd-k cmd-left": "pane::SplitLeft",
-      "cmd-k cmd-right": "pane::SplitRight",
+      "cmd-k cmd-up": "pane::SplitHorizontal",
+      "cmd-k cmd-down": "pane::SplitHorizontal",
+      "cmd-k cmd-left": "pane::SplitVertical",
+      "cmd-k cmd-right": "pane::SplitVertical",
       //project_panel::keybinds
       "ctrl-alt-cmd-x": "project_panel::CollapseAllEntries",
     },

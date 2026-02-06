@@ -1,39 +1,21 @@
 # ---------------------------------------------------------
-# 🛠️  Pre-Initialization (Paths & Completions)
+# 🛠️  Pre-Initialization (Paths & Variables)
 # ---------------------------------------------------------
 
-# Uncomment the following two lines if needed
-# autoload -Uz compinit
-# compinit
+#:: zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
-# :: Docker
-fpath=($HOME/.docker/completions $fpath)
+# :: powerlevel10k
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # :: brew
 export BREW_HOME="/opt/homebrew"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-
-# ---------------------------------------------------------
-# 🔌  oh-my-zsh
-# ---------------------------------------------------------
-
-# Path to oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# ---------------------------------------------------------
-# ⚙️  Shell utilities
-# ---------------------------------------------------------
-
-# :: zoxide
-eval "$(zoxide init --cmd cd zsh)"
-
-# ---------------------------------------------------------
-# 🌐  Web development toolchain (Bun, Deno, Volta)
-# ---------------------------------------------------------
 
 # :: volta
 export VOLTA_HOME="$HOME/.volta"
@@ -42,14 +24,62 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # :: bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# ---------------------------------------------------------
+# ⚙️  Shell utilities and plugin manager
+# ---------------------------------------------------------
+
+# :: zinit (plugin manager)
+source "${ZINIT_HOME}/zinit.zsh"
+
+# :: zoxide (better completion command)
+eval "$(zoxide init --cmd cd zsh)"
+
+# :: powerlevel10k (https://github.com/romkatv/powerlevel10k)
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+
+# :: zinit annexes
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+# ---------------------------------------------------------
+# 💡  Completions and fpaths
+# ---------------------------------------------------------
+
+# :: docker fpath
+fpath=($HOME/.docker/completions $fpath)
+
+# :: deno fpath
+fpath=($HOME/.zsh/completions $fpath)
+
+# :: initialize completion system
+autoload -Uz compinit
+
+# :: helper to check if cache is fresh (less than 24h old)
+_is_cache_fresh() {
+  local check="${ZDOTDIR:-$HOME}/.zcompdump(#qN.m-1)"
+  [[ -n ${~check} ]]
+}
+
+if _is_cache_fresh; then
+  compinit -C
+else
+  compinit
+fi
+
+# :: bun completion script
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# :: deno
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-. "$HOME/.deno/env"
+# :: zinit completion
+autoload -Uz _zinit
+[[ -v _comps ]] && _comps[zinit]=_zinit
 
-# :: completions bridge (Terraform, etc)
-autoload -U +X bashcompinit && bashcompinit
+# :: bash completions bridge (Terraform, etc)
+autoload -Uz bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # ---------------------------------------------------------
@@ -69,12 +99,12 @@ export PATH="$PATH:/Users/austinkarren/.lmstudio/bin"
 alias lms-load-qwen-vision="lms load --identifier qwen-portal/vision-model"
 
 lms-status() {
-  echo "👀 Checking LM Studio status"
+  echo "\e[38;5;99m\uf05a\e[0m Checking LM Studio status"
   lms status
 }
 
 lms-models() {
-  echo "🔍 Checking LM Studio models"
+  echo "\e[38;5;99m\ue24b\e[0m Checking LM Studio models"
   curl http://192.168.69.127:1234/v1/models
 }
 
@@ -83,7 +113,7 @@ lms-models() {
 # ---------------------------------------------------------
 
 git-unload() {
-  echo "📦 Unloading dead branches..."
+  echo "\e[33m\uf440\e[0m Unloading dead branches..."
   git fetch -p && git branch -vv | grep ": gone]" | awk '{print $1}' | xargs -r git branch -D
 }
 
@@ -96,12 +126,12 @@ git-reindex() {
 }
 
 reload-shell() {
-  echo "🔄 Reloading shell..."
+  echo "\e[32m\uf01e\e[0m Reloading shell..."
   exec zsh
 }
 
 secret() {
-  echo "🔑 Generating secret..."
+  echo "\e[33m\uf084\e[0m Generating secret..."
   openssl rand -base64 32
 }
 
@@ -112,9 +142,13 @@ alias lsa="ls -a --color=always"
 # 🎨  Terminal personalization - startup animation
 # ---------------------------------------------------------
 
+# :: startup animation
 echo "austink.dev" | figlet  -f "Slant" | lolcat
 echo "keybindings:" | lolcat
 printf "  %-16s %s\n" "cmd+d" "=  new_split:auto"
 printf "  %-16s %s\n" "cmd+opt+arrow" "=  toggle_split_view"
 printf "  %-16s %s\n" "cmd+shift+space" "=  toggle_quick_terminal"
 echo " "
+
+# :: powerlevel10k config
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

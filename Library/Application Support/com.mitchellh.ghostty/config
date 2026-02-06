@@ -4,7 +4,7 @@
 theme = dark:Andromeda,light:Catppuccin Latte
 
 # font
-font-family = MonoLisa
+font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 15
 font-thicken = false
 
