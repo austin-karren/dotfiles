@@ -2,6 +2,8 @@
 
 This repository contains my personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/). Stow creates symlinks from this repository to your home directory, making it easy to version control and sync your configuration files across machines.
 
+The shell configuration uses [zinit](https://github.com/zdharma-continuum/zinit) as the plugin manager with [Powerlevel10k](https://github.com/romkatv/powerlevel10k) for the prompt theme.
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
@@ -33,25 +35,13 @@ Set Zsh as your default shell:
 chsh -s $(which zsh)
 ```
 
-#### Oh My Zsh
+#### Zinit (Plugin Manager)
 
-First, verify Zsh is installed:
+Zinit is automatically installed when you first source the `.zshrc` file. No manual installation is required—the configuration handles cloning the repository if it doesn't exist.
 
-```bash
-which zsh
-```
+#### Powerlevel10k (Prompt Theme)
 
-Install Oh My Zsh using curl:
-
-```zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-Or using wget:
-
-```zsh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+Powerlevel10k is installed via zinit automatically. On first run, you may be prompted to configure it using the built-in configuration wizard, or you can use the included `.p10k.zsh` configuration file.
 
 #### Git
 
@@ -115,15 +105,21 @@ brew install git-delta
    stow .
    ```
 
-3. **Handle Oh My Zsh `.zshrc` conflict**:
-
-   Oh My Zsh creates its own `.zshrc` file during installation. To use the `.zshrc` from this repo, use the `--adopt` flag:
+   If you have an existing `.zshrc` file, you can use the `--adopt` flag to have Stow take ownership of it:
 
    ```zsh
    stow --adopt .
    ```
 
-   This will replace the repository's `.zshrc` with your current one, so you may want to back up your changes first or use `stow --adopt` carefully.
+   This will replace the repository's `.zshrc` with your current one, so you may want to back up your changes first.
+
+3. **Reload your shell**:
+
+   ```zsh
+   exec zsh
+   ```
+
+   On first run, zinit will automatically install itself and download the configured plugins (including Powerlevel10k).
 
 ## Configuration
 
@@ -175,16 +171,43 @@ with your own information:
 
 ### Zsh Configuration (`.zshrc`)
 
-The `.zshrc` file is configured for macOS on Apple Silicon. If you're using a different system:
+The `.zshrc` file is configured for macOS on Apple Silicon and uses:
+
+- **[zinit](https://github.com/zdharma-continuum/zinit)** - Fast and flexible plugin manager
+- **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)** - Feature-rich prompt theme
+- **[zoxide](https://github.com/ajeetdsouza/zoxide)** - Smarter cd command (aliased to `cd`)
+
+#### Sections Overview
+
+The configuration is organized into clearly labeled sections:
+
+1. **Pre-Initialization** - Paths, environment variables, and instant prompt setup
+2. **Shell Utilities** - Plugin manager (zinit), zoxide, and Powerlevel10k
+3. **Completions** - Docker, Deno, Bun, and Terraform completions
+4. **Mobile Development** - Android SDK and Java paths
+5. **LM Studio** - Local LLM tooling aliases
+6. **Aliases and Functions** - Custom productivity commands
+7. **Terminal Personalization** - Startup animation and p10k config
+
+#### Built-in Help
+
+Run `help` in your terminal to see all custom aliases and functions, or use:
+
+- `my-aliases` - List all custom aliases
+- `my-functions` - List all custom functions
+- `reload-shell` - Reload the shell configuration
+
+If you're using a different system:
 
 1. Review and adjust paths to match your system
-2. Comment out or modify JS ecosystem configurations (Node.js, npm, etc.)
+2. Comment out or modify JS ecosystem configurations (Volta, Bun, etc.)
 3. Adjust any macOS-specific settings
 
 ## Included Files
 
 - **`.gitconfig`** - Git configuration with aliases and enhanced diff viewing
-- **`.zshrc`** - Zsh shell configuration with Oh My Zsh integration
+- **`.zshrc`** - Zsh shell configuration with zinit and Powerlevel10k
+- **`.p10k.zsh`** - Powerlevel10k prompt configuration
 - **`.config/zed/`** - Zed editor configuration (optional)
 - **`Library/Application Support/com.mitchellh.ghostty/`** - Ghostty terminal configuration (optional)
 
