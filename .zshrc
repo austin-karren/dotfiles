@@ -138,6 +138,52 @@ secret() {
 alias ls="ls --color=always"
 alias lsa="ls -a --color=always"
 
+my-aliases() {
+  echo "\e[36m\uf0ca\e[0m Custom aliases from ~/.zshrc:"
+  echo ""
+  grep -E "^alias " ~/.zshrc | sort | while read -r line; do
+    # Extract alias name and value
+    alias_def="${line#alias }"
+    alias_name="${alias_def%%=*}"
+    alias_value="${alias_def#*=}"
+    # Remove surrounding quotes from value
+    alias_value="${alias_value%\"}"
+    alias_value="${alias_value#\"}"
+    printf "  \e[33m%-20s\e[0m %s\n" "$alias_name" "$alias_value"
+  done
+}
+
+my-functions() {
+  echo "\e[36m\uf121\e[0m Custom functions from ~/.zshrc:"
+  echo ""
+  grep -E "^[a-zA-Z_][a-zA-Z0-9_-]*\(\)" ~/.zshrc | sort | while read -r line; do
+    # Extract function name (remove the parentheses)
+    func_name="${line%%\(\)*}"
+    printf "  \e[35m%s\e[0m\n" "$func_name"
+  done
+}
+
+help() {
+  echo "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+  echo "\e[1m\e[36m  austink.dev shell customizations\e[0m"
+  echo "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+  echo ""
+  echo "Custom aliases and functions defined in ~/.zshrc for"
+  echo "productivity, git workflows, and local development tools."
+  echo ""
+  echo "Run \e[33mmy-aliases\e[0m or \e[33mmy-functions\e[0m individually for filtered output."
+  echo "Edit \e[33m~/.zshrc\e[0m to add or modify custom commands."
+  echo ""
+  echo "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+  echo ""
+  my-aliases
+  echo ""
+  my-functions
+  echo ""
+  echo "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+  echo "\e[2mSource: ~/.zshrc | Reload: reload-shell\e[0m"
+}
+
 # ---------------------------------------------------------
 # 🎨  Terminal personalization - startup animation
 # ---------------------------------------------------------
