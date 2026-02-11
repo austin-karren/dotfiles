@@ -12,8 +12,8 @@ font-thicken = false
 window-padding-y = 6
 window-padding-x = 6
 window-padding-balance = true
-window-width = 95
-window-height = 28
+window-width = 120
+window-height = 35
 window-save-state = always
 
 # quick terminal

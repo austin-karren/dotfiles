@@ -126,7 +126,7 @@ git-reindex() {
 }
 
 reload-shell() {
-  echo "\e[32m\uf01e\e[0m Reloading shell..."
+  echo "\e[36m\uf01e\e[0m Reloading shell..."
   exec zsh
 }
 
@@ -138,8 +138,16 @@ secret() {
 alias ls="ls --color=always"
 alias lsa="ls -a --color=always"
 
+my-ghostty() {
+  echo "ghostty keybindings:"
+  echo ""
+  printf "  %-16s %s\n" "cmd+d" "=  new_split:auto"
+  printf "  %-16s %s\n" "cmd+opt+arrow" "=  toggle_split_view"
+  printf "  %-16s %s\n" "cmd+shift+space" "=  toggle_quick_terminal"
+}
+
 my-aliases() {
-  echo "\e[36m\uf0ca\e[0m Custom aliases from ~/.zshrc:"
+  echo "Aliases:"
   echo ""
   grep -E "^alias " ~/.zshrc | sort | while read -r line; do
     # Extract alias name and value
@@ -149,17 +157,17 @@ my-aliases() {
     # Remove surrounding quotes from value
     alias_value="${alias_value%\"}"
     alias_value="${alias_value#\"}"
-    printf "  \e[33m%-20s\e[0m %s\n" "$alias_name" "$alias_value"
+    printf "  %-20s %s\n" "$alias_name" "=  $alias_value"
   done
 }
 
 my-functions() {
-  echo "\e[36m\uf121\e[0m Custom functions from ~/.zshrc:"
+  echo "Functions:"
   echo ""
   grep -E "^[a-zA-Z_][a-zA-Z0-9_-]*\(\)" ~/.zshrc | sort | while read -r line; do
     # Extract function name (remove the parentheses)
     func_name="${line%%\(\)*}"
-    printf "  \e[35m%s\e[0m\n" "$func_name"
+    printf "  %s\n" "$func_name"
   done
 }
 
@@ -176,6 +184,8 @@ help() {
   echo ""
   echo "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
   echo ""
+  my-ghostty
+  echo ""
   my-aliases
   echo ""
   my-functions
@@ -184,17 +194,17 @@ help() {
   echo "\e[2mSource: ~/.zshrc | Reload: reload-shell\e[0m"
 }
 
+my-name() {
+  echo "austink.dev" | figlet  -f "Slant" | lolcat
+  echo " "
+}
+
 # ---------------------------------------------------------
 # 🎨  Terminal personalization - startup animation
 # ---------------------------------------------------------
 
 # :: startup animation
-echo "austink.dev" | figlet  -f "Slant" | lolcat
-echo "keybindings:" | lolcat
-printf "  %-16s %s\n" "cmd+d" "=  new_split:auto"
-printf "  %-16s %s\n" "cmd+opt+arrow" "=  toggle_split_view"
-printf "  %-16s %s\n" "cmd+shift+space" "=  toggle_quick_terminal"
-echo " "
+my-name
 
 # :: powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
