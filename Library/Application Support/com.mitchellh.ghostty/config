@@ -1,0 +1,26 @@
+# MacOS Ghostty Config
+
+# themes
+theme = dark:Andromeda,light:Catppuccin Latte
+
+# font
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 15
+font-thicken = false
+
+# window
+window-padding-y = 6
+window-padding-x = 6
+window-padding-balance = true
+window-width = 120
+window-height = 35
+window-save-state = always
+
+# quick terminal
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+
+# keybinds
+keybind = global:cmd+shift+space=toggle_quick_terminal
+keybind = shift+enter=text:\n
+keybind = cmd+d=new_split:auto

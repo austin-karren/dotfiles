@@ -1,0 +1,143 @@
+{
+  "lsp": {
+    /*
+      🗒️ note: this config allows tailwind language server to run in CVA and CX objects
+    */
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cva", "cx"],
+      },
+    },
+    /*
+      Biome
+      🗒️ note: biome is dead to me due to how zed handles language servers and oxlint works great
+    */
+    "typos": {
+      "initialization_options": {
+        "config": ".typos.toml",
+        "path": "typos-lsp",
+        "diagnosticSeverity": "Warning",
+        "logLevel": "info",
+        "trace.server": "off",
+      },
+    },
+  },
+
+  /*
+    ⚠️ warning: leave disabled until zed fixes this
+    🗒️ note: once zed supports fallbacks switch to tsgo
+  */
+  // "languages": {
+  //   "TypeScript": {
+  //     "language_servers": ["tsgo", "vtsls", "!typescript-language-server", "..."],
+  //   },
+  //   "TSX": {
+  //     "language_servers": ["tsgo", "vtsls", "!typescript-language-server", "..."],
+  //   },
+  // },
+
+  /* Behaviors */
+  "format_on_save": "on",
+
+  /* Themes 🎨 */
+  "theme": {
+    "mode": "system",
+    "dark": "Catppuccin Mocha", // ⚫
+    "light": "Catppuccin Latte", // 🟤
+    // dark: "Andromeda" // ✨
+    // light: "One Light" // 💡
+  },
+
+  /*
+    🗒️ note: see keymap.json
+  */
+  "base_keymap": "VSCode",
+
+  /* Editor  */
+  "tab_size": 2,
+  "ui_font_size": 16,
+  "buffer_font_size": 16.0,
+  "ui_font_family": "MonoLisa",
+  "extend_comment_on_newline": false,
+  "soft_wrap": "editor_width",
+  "terminal": {
+    "dock": "left",
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+    },
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "file_types": {
+    "JSONC": ["tsconfig*.json", "base.json", "internal-package.json"],
+  },
+
+  /* Hidden Items */
+  "collaboration_panel": {
+    "dock": "left",
+    "button": false,
+  },
+
+  /* Agents 🤖 */
+  "agent": {
+    "tool_permissions": {
+      "default": "allow",
+    },
+    "dock": "right",
+    "default_profile": "write",
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "open": true,
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "thinking": true,
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {},
+      },
+    },
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-6-1m-context-thinking-latest",
+    },
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet",
+    },
+    "commit_message_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash",
+    },
+    "thread_summary_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash",
+    },
+    "button": true,
+  },
+}
