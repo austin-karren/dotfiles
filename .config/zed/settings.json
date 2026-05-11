@@ -1,4 +1,11 @@
 {
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "lsp": {
     /*
       🗒️ note: this config allows tailwind language server to run in CVA and CX objects
@@ -21,6 +28,25 @@
     "tailwindcss-language-server": {
       "settings": {
         "classFunctions": ["cva", "cx"],
+      },
+    },
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "configPath": null,
+          "run": "onType",
+          "disableNestedConfig": false,
+          "fixKind": "safe_fix",
+          "unusedDisableDirectives": "deny",
+        },
+      },
+    },
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": null,
+          "run": "onSave",
+        },
       },
     },
     /*
@@ -75,9 +101,6 @@
   "ui_font_family": "MonoLisa",
   "extend_comment_on_newline": false,
   "soft_wrap": "editor_width",
-  "terminal": {
-    "dock": "left",
-  },
   "scrollbar": {
     "axes": {
       "horizontal": false,
@@ -98,6 +121,7 @@
 
   /* Agents 🤖 */
   "agent": {
+    "sidebar_side": "right",
     "tool_permissions": {
       "default": "allow",
     },

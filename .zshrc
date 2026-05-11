@@ -25,6 +25,10 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# :: aws
+export AWS_PROFILE=shiptrac-austin
+export AWS_SDK_LOAD_CONFIG=1
+
 # ---------------------------------------------------------
 # ⚙️  Shell utilities and plugin manager
 # ---------------------------------------------------------
@@ -34,6 +38,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # :: zoxide (better completion command)
 eval "$(zoxide init --cmd cd zsh)"
+export _ZO_DOCTOR=0
 
 # :: powerlevel10k (https://github.com/romkatv/powerlevel10k)
 zinit ice depth=1
