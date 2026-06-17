@@ -36,10 +36,6 @@ export AWS_SDK_LOAD_CONFIG=1
 # :: zinit (plugin manager)
 source "${ZINIT_HOME}/zinit.zsh"
 
-# :: zoxide (better completion command)
-eval "$(zoxide init --cmd cd zsh)"
-export _ZO_DOCTOR=0
-
 # :: powerlevel10k (https://github.com/romkatv/powerlevel10k)
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
@@ -50,6 +46,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
+
+# :: zoxide (better completion command)
+eval "$(zoxide init --cmd cd zsh)"
+export _ZO_DOCTOR=0
 
 # ---------------------------------------------------------
 # 💡  Completions and fpaths
@@ -143,6 +143,16 @@ secret() {
 alias ls="ls --color=always"
 alias lsa="ls -a --color=always"
 
+claude() {
+  # Starts caffeinate, stores its process ID (PID), runs Claude,
+  # and kills caffeinate as soon as you exit the Claude CLI
+  caffeinate -d -i -m -s &
+  local CAFF_PID=$!
+  command claude
+  kill $CAFF_PID 2>/dev/null
+}
+
+
 my-ghostty() {
   echo "ghostty keybindings:"
   echo ""
@@ -213,3 +223,8 @@ my-name
 
 # :: powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# bun completions
+[ -s "/Users/austinkarren/.bun/_bun" ] && source "/Users/austinkarren/.bun/_bun"
+
+. "$HOME/.local/bin/env"

@@ -1,10 +1,11 @@
 {
   "cli_default_open_behavior": "existing_window",
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "left"
+    "commit_title_max_length": 72,
+    "dock": "left",
   },
   "lsp": {
     /*
@@ -27,7 +28,9 @@
     },
     "tailwindcss-language-server": {
       "settings": {
-        "classFunctions": ["cva", "cx"],
+        "experimental": {
+          "classFunctions": ["cva", "cx"],
+        },
       },
     },
     "oxlint": {
@@ -97,7 +100,7 @@
   /* Editor  */
   "tab_size": 2,
   "ui_font_size": 16,
-  "buffer_font_size": 16.0,
+  "buffer_font_size": 15,
   "ui_font_family": "MonoLisa",
   "extend_comment_on_newline": false,
   "soft_wrap": "editor_width",
