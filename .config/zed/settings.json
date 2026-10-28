@@ -86,8 +86,8 @@
   /* Themes 🎨 */
   "theme": {
     "mode": "system",
-    "dark": "Catppuccin Mocha", // ⚫
-    "light": "Catppuccin Latte", // 🟤
+    "dark": "Catppuccin Macchiato - No Italics", // ⚫
+    "light": "Catppuccin Latte - No Italics", // 🟤
     // dark: "Andromeda" // ✨
     // light: "One Light" // 💡
   },
@@ -124,7 +124,6 @@
 
   /* Agents 🤖 */
   "agent": {
-    "sidebar_side": "right",
     "tool_permissions": {
       "default": "allow",
     },
@@ -134,16 +133,12 @@
       "ask": {
         "name": "Ask",
         "tools": {
-          "open": true,
-          "contents": true,
           "diagnostics": true,
           "fetch": true,
           "list_directory": false,
-          "now": true,
           "find_path": true,
           "read_file": true,
           "grep": true,
-          "thinking": true,
         },
         "enable_all_context_servers": false,
         "context_servers": {},
